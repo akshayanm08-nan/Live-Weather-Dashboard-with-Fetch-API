@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Check current weather conditions and a five-day forecast for cities around the world.">
+    <title>SkyCast | Live Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body><main class="dashboard">
+
+    <header class="topbar">
+        <a href="#" class="logo">
+            <span class="logo-icon">☀</span>
+            SkyCast
+        </a>
+        <span class="live-indicator">
+            <span class="status-dot"></span>
+            LIVE WEATHER
+        </span>
+    </header>
+
+    <section class="hero">
+        <p class="eyebrow">YOUR PERSONAL WEATHER STATION</p>
+        <h1>Weather, <span>at a glance.</span></h1>
+        <p class="hero-description">
+            Discover current conditions and forecasts for any city.
+        </p>
+
+        <form id="search-form" class="search-form">
+            <label for="city-input" class="visually-hidden">
+                Enter a city name
+            </label>
+
+            <span class="search-icon" aria-hidden="true">⌕</span>
+
+            <input
+                type="search"
+                id="city-input"
+                placeholder="Search a city, e.g. Coimbatore"
+                maxlength="100"
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit" id="search-button">
+                Search
+            </button>
+        </form>
+
+        <p class="search-hint">Try Coimbatore, London, Tokyo or New York</p>
+    </section>
+
+    <div id="status-message" class="status-message" role="status" aria-live="polite">
+        Search for a city to see its latest weather.
+    </div>
+
+    <section id="weather-content" class="weather-content" hidden>
+
+        <section class="current-weather card">
+            <div class="current-top">
+                <div>
+                    <p class="section-label">CURRENT WEATHER</p>
+                    <h2 id="city-name">City</h2>
+                    <p id="current-date" class="muted-text"></p>
+                </div>
+
+                <span id="current-icon" class="current-icon" aria-hidden="true">☀️</span>
+            </div>
+
+            <div class="temperature-row">
+                <p class="temperature">
+                    <span id="current-temperature">--</span><span class="degree">°C</span>
+                </p>
+
+                <div class="temperature-details">
+                    <p id="weather-description">--</p>
+                    <p class="muted-text">
+                        Feels like <span id="feels-like">--</span>°C
+                    </p>
+                </div>
+            </div>
+
+            <div class="weather-stats">
+                <div class="stat">
+                    <span class="stat-icon" aria-hidden="true">💧</span>
+                    <div>
+                        <p class="stat-label">Humidity</p>
+                        <p class="stat-value"><span id="humidity">--</span>%</p>
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-icon" aria-hidden="true">💨</span>
+                    <div>
+                        <p class="stat-label">Wind Speed</p>
+                        <p class="stat-value"><span id="wind-speed">--</span> km/h</p>
+                    </div>
+                </div>
+
+                <div class="stat">
+                    <span class="stat-icon" aria-hidden="true">🌧️</span>
+                    <div>
+                        <p class="stat-label">Precipitation</p>
+                        <p class="stat-value"><span id="precipitation">--</span> mm</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="forecast-section">
+            <div class="section-heading">
+                <div>
+                    <p class="section-label">PLAN AHEAD</p>
+                    <h2>5-Day Forecast</h2>
+                </div>
+                <span class="forecast-badge">NEXT 5 DAYS</span>
+            </div>
+
+            <div id="forecast-grid" class="forecast-grid"></div>
+        </section>
+
+        <p id="last-updated" class="last-updated"></p>
+
+    </section>
+
+    <footer>
+        <p>Made with ☁️ and JavaScript</p>
+        <p>Weather data by Open-Meteo</p>
+    </footer>
+
+</main>
+
+</body>
+</html>
